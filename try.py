@@ -4,19 +4,19 @@ app = Flask(__name__)
 
 mensajes ={}
 @app.route('/allmensajes')
-def get_Products():
+def get_products():
     return jsonify({'mensajes': mensajes})
 
 
 @app.route('/mensaje/<string:x>',methods=['GET'])
-def get_Product(x):
+def get_product(x):
 	if x in mensajes:
 		return jsonify(mensajes[x])
 	else:
          return jsonify([{'status': 'No hay mensaje'}])
 
 @app.route('/mensaje', methods=['POST'])
-def sent_Product():
+def sent_product():
     try:
             mensaje: request.json["mensaje"]
             topic = request.json['topic']
