@@ -22,7 +22,7 @@ def sent_product():
             topic = request.json['topic']
             mensajes[topic].append({'topic': topic,"mensaje":mensaje})
             return jsonify({"status":"ok"})
-    except:
+    except FileNotFoundError:
             return jsonify({"status":"fail"})
 
 
